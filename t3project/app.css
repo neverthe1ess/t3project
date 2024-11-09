@@ -1,0 +1,52 @@
+﻿body{
+    font-family: Pretendard;
+}
+table {
+    border-collapse:collapse;
+}
+
+
+.navbars {
+    padding-left: 120px;
+    display: block;
+    grid-template-columns: 3fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar_logo{
+    font-size: 30px;
+}
+
+.navbar_hr {
+    border: 0;
+    height: 2px;
+    margin-top: 5px;
+}
+
+.logoimg {
+        display: block;
+        margin: 15px;
+        height: 40px;
+}
+
+.function_title{
+    text-align: center;
+    margin-top: 4%;
+}
+
+.function_title h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: #555555;
+    line-height: 100%;
+}
+.dayofweek_name_cal{
+    margin-top: 2%;
+    text-align:center;
+    font-size:30px;
+    font-weight:700;
+}
+.table {
+    width: 100%;
+    margin-top:2%;
+}
