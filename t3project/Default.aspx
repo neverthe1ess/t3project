@@ -14,17 +14,17 @@
        <header>
            <nav class="navbars"> 
                <div class="navbar_logo" style="font-weight:600">
-                   <a href="/" style="color:#A2988F;">
-                       <img class ="logoimg" src="logo.png" alt="로고 이미지" >
-                       &nbsp; | &nbsp; 학원 시간표 시스템
-                        </a>
-                   <a href="/">
-                       &nbsp; &nbsp; 로그인
+                   <a href="/" style="color:#A2988F; display:flex";>
+                   <img class ="logoimg" src="logo.png" alt="로고 이미지" />
+                   <span>&nbsp;&nbsp;|&nbsp;&nbsp;학원 시간표 시스템</span>
                    </a>
-                  <a href="/" >
-                       &nbsp; &nbsp; 검색
-                   </a>
-               </div>
+                   </div>
+                <div class="navbar_function">
+                     <a class="navbar_button" href="/" > &nbsp; &nbsp; 검색</a>
+                     <a class="navbar_button" href="/" > &nbsp; &nbsp; 게시판</a>
+                     <a class="navbar_button" href="/"> &nbsp; &nbsp; 로그인 </a>
+                </div>
+                      
            </nav>
            <hr class ="navbar_hr" style="background-color: #e0d9d3;"/>   
        </header>
@@ -34,116 +34,123 @@
            </div>
            <div>
                <div class ="dayofweek_name_cal">
-                   <a id="" href=""><</a>
+                   <a href="/"><</a>
                    &nbsp;&nbsp;수요일&nbsp;&nbsp;
-                   <a id="" href="">></a>
+                   <a href="/">></a>
                </div>
-               <table class="table">
-                   <tbody>
-                       <tr colspan="9">
-                           <th>시간</th>
-                           <th>1강의실</th>
-                           <th>2강의실</th>
-                           <th>3강의실</th>
-                           <th>4강의실</th>
-                           <th>5강의실</th>
-                           <th>6강의실</th>
-                           <th>7강의실</th>
-                           <th>8강의실</th>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
-                       <tr>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                       </tr>
+               <div class ="table_container">
+                   <table class="table">
+                        <thead>
+                           <tr colspan="9">
+                             <th>시간</th>
+                             <th>1강의실</th>
+                             <th>2강의실</th>
+                             <th>3강의실</th>
+                             <th>4강의실</th>
+                             <th>5강의실</th>
+                             <th>6강의실</th>
+                             <th>7강의실</th>
+                             <th>8강의실</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                            <tr>
+                                <th>강의 내용</th>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                                <td>강의 내용</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                   </tbody>
-               </table>
+               </div>
            </div> 
        </main>
+      <footer>
+          감사합나디!
+     </footer>
     </form>
 </body>
 </html>
