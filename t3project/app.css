@@ -1,32 +1,43 @@
-﻿body{
+﻿@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+body{
     font-family: Pretendard;
 }
 table {
     border-collapse:collapse;
 }
-
-
 .navbars {
-    padding-left: 8%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 2%;
+}
+
+.navbars_all{
+    width: 100%;
+    display: flex;
+    padding: 35px 150px 0px 150px;
+    align-items: center;
 }
 
 .navbar_logo{
     font-size:30px;
     display: flex;
     align-items:center;
-    
 }
 .navbar_function{
-    margin-right:8%;
+    margin-left:1%;
+}
+
+.navbar_login{
+    flex:
+{
+    1,0,0
+}
 }
 
 .navbar_button{
-    margin-left:15px;
-    font-size:1.2em;
+    padding: 0 20px;
+    font-size:1.5em;
     font-weight:700;
 }
 
@@ -38,12 +49,16 @@ table {
 
 .logoimg {
         display: block;
-        height: 40px;
+        height: 35px;
+        margin-top:3px;
 }
 
 .function_title{
     text-align: center;
-    margin-top: 4%;
+    margin-top: 3%;
+    font-size:40px;
+    font-weight:700;
+    color:#555555;
 }
 
 .function_title h1{
@@ -52,12 +67,14 @@ table {
     color: #555555;
     line-height: 100%;
 }
+
 .dayofweek_name_cal{
     margin-top: 2%;
     text-align:center;
     font-size:30px;
     font-weight:700;
 }
+
 
 .table_container{
     padding-left:7%;
