@@ -47,6 +47,24 @@ table {
     margin-top: 2%;
 }
 
+.location_buttonbar{
+    padding:0px 30px;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+}
+
+.location_button{
+    padding:10px 40px;
+
+}
+
+.location_buttons {
+    padding: 0px 30px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
 .logoimg {
         display: block;
         height: 35px;
@@ -82,6 +100,7 @@ table {
 }
 
 
+
 .table {
     width: 100%;
     margin-top:2%;
@@ -98,6 +117,41 @@ table {
         padding: 20px;
         text-align:center;
 }
+
+.floating-button-container {
+    display: flex;
+    gap: 10px;
+    background-color: #eaeaea;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.floating-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .floating-button:hover {
+        background-color: #e0e0e0;
+    }
+
+.selected {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
 
 footer {
     margin-top:30px;
