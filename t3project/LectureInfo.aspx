@@ -16,7 +16,7 @@
            <nav class="navbars">
               <div class ="navbars_all">
                 <div class="navbar_logo" style="font-weight:600">
-                   <a href="/" style="color:#A2988F; display:flex";>
+                   <a href="/Default.aspx" style="color:#A2988F; display:flex";>
                    <img class ="logoimg" src="logo.png" alt="로고 이미지" />
                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;학원 시간표 시스템</span>
                    </a>
@@ -62,12 +62,11 @@
                    <hr />
                    <div>
                        <span class="title">게시판</span>
-                       <asp:Label class="body" ID="lblBoard" runat="server" Text="게시판 내용 나오기"></asp:Label>
+                       <asp:Label class="body" ID="lblNote" runat="server" Text="메모"></asp:Label>
                    </div>
                </div>
                <div style="margin-top:15px">
                    <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" />
-                   <asp:Button CssClass ="button_function" style ="background:#0d6efd; border:1px solid #0d6efd;" ID="btnLectureSubmit" runat="server" Text="강의 등록" />
                    <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="강의 수정" />
                    <asp:Button CssClass ="button_function" style ="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Text="강의 삭제" />
                </div>

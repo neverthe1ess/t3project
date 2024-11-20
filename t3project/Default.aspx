@@ -22,9 +22,9 @@
                    </a>
                </div>
                <div class="navbar_function">
-                  <a class="navbar_button" href="/">수업관리 </a>
-                  <a class="navbar_button" href="/" >게시판</a>
-                  <a class="navbar_button" href="/" >검색</a>
+                  <a class="navbar_button" href="/LectureInfo.aspx">수업관리 </a>
+                  <a class="navbar_button" href="/">게시판</a>
+                  <a class="navbar_button" href="/">검색</a>
                </div> 
                 <div style="flex:1 0 0">
                </div>
