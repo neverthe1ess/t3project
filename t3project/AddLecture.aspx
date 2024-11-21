@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="/public/css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="app3.css" rel="stylesheet" type="text/css" />
+    <link href="/public/css/addlecture.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
@@ -22,8 +22,8 @@
            </div>
            <div class="navbar_function">
               <a class="navbar_button" href="/LectureInfo.aspx">수업관리 </a>
-              <a class="navbar_button" href="/" >게시판</a>
-              <a class="navbar_button" href="/" >검색</a>
+              <a class="navbar_button" href="/Board.aspx" >게시판</a>
+              <a class="navbar_button" href="/Search.aspx" >검색</a>
            </div> 
             <div style="flex:1 0 0">
            </div>

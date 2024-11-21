@@ -1,0 +1,123 @@
+﻿@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+body {
+    font-family: Pretendard;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.navbars {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbars_all {
+    width: 100%;
+    display: flex;
+    padding: 35px 150px 0px 150px;
+    align-items: center;
+}
+
+.navbar_logo {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar_function {
+    margin-left: 1%;
+}
+
+.navbar_button {
+    padding: 0 20px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.navbar_hr {
+    border: 0;
+    height: 2px;
+    margin-top: 2%;
+}
+
+
+.logoimg {
+    display: block;
+    height: 35px;
+    margin-top: 3px;
+}
+
+.function_title {
+    text-align: center;
+    margin: 5% 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: #555555;
+}
+
+
+.login_container {
+    margin: 50px 650px;
+    justify-content: center;
+    min-height: 30vh;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding:20px 30px;
+}
+.login_element{
+    width:100%;
+    font-size:20px;
+    font-weight:600;
+    padding:15px;
+    
+}
+
+.login_validator {
+    font-size: 20px;
+    font-weight: 500;
+    color:#FE642E;
+}
+
+.login_button {
+    margin-bottom:10px;
+    border: 0;
+    border-radius:28px;
+    background:#0a66c2;
+    color:white;
+    padding:10px;
+    font-size:20px;
+    font-weight:400;
+    width:100%;
+}
+
+
+hr {
+    border: 0;
+    background-color: #E8E8E8;
+    height: 2px;
+    margin-top: 3px;
+}
+
+
+.sign_up_message{
+    margin-top:10px;
+    font-size: 20px;
+    font-weight:500;
+    color:black;
+}
+
+footer {
+    color: #8a8f95;
+    padding: 0 100px;
+    background-color: #f7f8f9;
+}
+
+.footer_title {
+    font-size: 1.2em;
+}
+
+.footer_title > b {
+    font-weight: 700;
+}
