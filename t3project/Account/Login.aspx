@@ -27,7 +27,7 @@
            </div> 
             <div style="flex:1 0 0">
            </div>
-           <a style="font-size:24px" href="/"> &nbsp; &nbsp; 로그인 </a>
+           <a style="font-size:24px" href="/Account/Login.aspx"> &nbsp; &nbsp; 로그인 </a>
          </div> 
        </nav>
        <hr class ="navbar_hr" style="background-color: #e0d9d3;"/>   

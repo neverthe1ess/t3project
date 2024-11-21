@@ -1,0 +1,43 @@
+﻿body {
+}
+
+.total_container{
+    padding:0 10%;
+    
+}
+
+.search_container {
+    display:flex;
+    margin-top: 5%;
+    height: 70px;
+    border: 1px solid rgb(221, 223, 224);
+    border-radius: 10px;
+    background: rgb(247, 248, 249);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px;
+}
+
+.result_search_header{
+    font-size:20px;
+    font-weight:700;
+    color:black;
+}
+
+.txtSearch{
+    background:none;
+    border:none;
+    padding:0 20px;
+    width:100%;
+    font-size:30px;
+    font-weight:400;
+}
+
+.search_result_container{
+    margin-top:5%;
+
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    margin-top: 2%;
+}
