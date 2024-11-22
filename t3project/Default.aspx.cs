@@ -12,5 +12,20 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
- 
+
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/Search.aspx");
+    }
+
+    protected void btnLectureManage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/LectureInfo.aspx");
+    }
+
+    protected void btnTeacherManage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/AddLecture.aspx");
+    }
 }

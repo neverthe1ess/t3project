@@ -18,34 +18,33 @@
         <h1 style="font-size:1.8em; font-weight:bold">수업 검색 결과</h1>
         <!-- 수업요일 수업시간 수업내용 강사이름 수업장소 -->
         <br /><br />
-        <asp:Button ID="Button1" runat="server" Text="감사합니다!" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" Text="가상 검색 테스트" OnClick="Button1_Click" />
         <br /><br />
         <asp:DataList ID="dlstSearch" runat="server" style="width:100%;"  >
-            <HeaderStyle CssClass="result_search_header"/>
             <HeaderTemplate>
-                <tr>
-                    <th><asp:Label ID="txtDay" runat="server" Text="수업요일"></asp:Label></th>
-                    <th><asp:Label ID="txtTime" runat="server" Text="수업시간"></asp:Label></th>
-                    <th><asp:Label ID="txtContent" runat="server" Text="수업내용"></asp:Label></th>
-                    <th><asp:Label ID="txtName" runat="server" Text="강사이름"></asp:Label></th>
-                    <th><asp:Label ID="txtRoom" runat="server" Text="수업장소"></asp:Label></th>
+                <tr class ="result_search_header">
+                    <th style="padding:8px;"><asp:Label ID="txtDay" runat="server" Text="수업요일"></asp:Label></th>
+                    <th style="padding:8px;"><asp:Label ID="txtTime" runat="server" Text="수업시간"></asp:Label></th>
+                    <th style="padding:8px;"><asp:Label ID="txtContent" runat="server" Text="수업내용"></asp:Label></th>
+                    <th style="padding:8px;"><asp:Label ID="txtName" runat="server" Text="강사이름"></asp:Label></th>
+                    <th style="padding:8px;"><asp:Label ID="txtRoom" runat="server" Text="수업장소"></asp:Label></th>
                 </tr>  
             </HeaderTemplate>
-            <ItemStyle BorderStyle="Solid" BorderWidth="1px" />
             <ItemTemplate>
                 <tr>
-                    <th><asp:Label ID="searchResDay" runat="server" Text='<%# Eval("day") %>'></asp:Label></th>
-                    <th><asp:Label ID="searchResTime" runat="server" Text='<%# Eval("time") %>'></asp:Label></th>
-                    <th><asp:LinkButton ID="searchResContent" runat="server" Text='<%# Eval("content") %>'></asp:LinkButton></th>
-                    <th><asp:Label ID="searchResName" runat="server" Text='<%# Eval("name") %>'></asp:Label></th>
-                    <th><asp:Label ID="searchResRoom" runat="server" Text='<%# Eval("room") %>'></asp:Label></th>
+                    <td class="result_search_body"><asp:Label ID="searchResDay" runat="server" Text='<%# Eval("day") %>'></asp:Label></td>
+                    <td class="result_search_body"><asp:Label ID="searchResTime" runat="server" Text='<%# Eval("time") %>'></asp:Label></td>
+                    <td class="result_search_body" style="text-align:left;"><asp:LinkButton ID="searchResContent" runat="server" Text='<%# Eval("content") %>'></asp:LinkButton></td>
+                    <td class="result_search_body"><asp:Label ID="searchResName" runat="server" Text='<%# Eval("name") %>'></asp:Label></td>
+                    <td class="result_search_body"><asp:Label ID="searchResRoom" runat="server" Text='<%# Eval("room") %>'></asp:Label></td>
                 </tr>
             </ItemTemplate>
 
             <SelectedItemTemplate>
-
             </SelectedItemTemplate>
         </asp:DataList>
+        <br /><br />
+
         
 
             

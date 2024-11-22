@@ -15,11 +15,12 @@ public partial class Search : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Lecture test = new Lecture("수요일", "13:00~14:00", "파이프라이닝에 대해 학습한다.", "이정빈T", "역동관");
-        Lecture test2 = new Lecture("수요일", "13:00~14:00", "파이프라이닝에 대해 학습한다.", "이정빈T", "역동관");
         List<Lecture> list = new List<Lecture>();
-        list.Add(test);
-        list.Add(test2);
+        for (int i = 0; i < 10; i++)
+        {
+            Lecture test = new Lecture("수요일", "13:00~14:00", "파이프라이닝에 대해 학습한다. 메모리의 캐시의 지역성에 알아본다", "이정빈T", "역동관");
+            list.Add(test);
+        }
 
         dlstSearch.DataSource = list;
         dlstSearch.DataBind();
