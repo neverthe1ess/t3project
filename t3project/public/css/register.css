@@ -1,53 +1,13 @@
 ﻿@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 
-body {
-    font-family: Pretendard;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-.navbars {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.navbars_all {
-    width: 100%;
-    display: flex;
-    padding: 35px 150px 0px 150px;
-    align-items: center;
-}
-
-.navbar_logo {
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar_function {
-    margin-left: 1%;
-}
-
-.navbar_button {
-    padding: 0 20px;
-    font-size: 1.5em;
+.function_title {
+    text-align: center;
+    margin: 5% 0;
+    font-size: 40px;
     font-weight: 700;
+    color: #555555;
 }
 
-.navbar_hr {
-    border: 0;
-    height: 2px;
-    margin-top: 2%;
-}
-
-.logoimg {
-    display: block;
-    height: 35px;
-    margin-top: 3px;
-}
 
 .function_title {
     text-align: center;
@@ -57,12 +17,6 @@ table {
     color: #555555;
 }
 
-.function_title h1 {
-        font-size: 40px;
-        font-weight: 700;
-        color: #555555;
-        line-height: 100%;
-}
 
 .lecture_infoContainer {
     margin: 40px 140px 40px 140px;
@@ -77,20 +31,22 @@ table {
 }
 
 .lecture_infoContainer > div > div {
-    padding: 20px 0;
+    padding: 15px 0;
     display: flex;
 }
 
-    .lecture_infoContainer > div > div > span.title {
+.lecture_infoContainer > div > div > span.title {
         width: 15%;
         font-weight: 700;
         font-size: 20px;
-    }
+}
 
-    .lecture_infoContainer > div > div > span.body {
+.lecture_infoContainer > div > div > span.body {
         width: 70%;
         font-size: 20px;
-    }
+}
+
+
 
 .form_box {
     padding: 10px;
@@ -100,7 +56,18 @@ table {
     height: 40px;
     border: 1px solid #CBCBCB;
     border-radius: 3px;
-    width: 600px;
+    width: 300px;
+}
+
+.form_box_multi {
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    height: 40px;
+    border: 1px solid #CBCBCB;
+    border-radius: 3px;
+    width: 300px;
     height: 150px;
 }
 
@@ -120,16 +87,4 @@ hr {
     padding: 10px 50px;
 }
 
-footer {
-    color: #8a8f95;
-    padding: 0 100px;
-    background-color: #f7f8f9;
-}
 
-.footer_title {
-    font-size: 1.2em;
-}
-
-    .footer_title > b {
-        font-weight: 700;
-    }

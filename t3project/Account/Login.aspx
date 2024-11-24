@@ -45,8 +45,7 @@
                    <asp:RequiredFieldValidator CssClass="login_validator" ID="RequiredFieldValidator2" runat="server" ErrorMessage="비밀번호는 필수입니다!" ControlToValidate="tbPassword" Height="30px"></asp:RequiredFieldValidator>
                </div>
                <asp:Button CssClass="login_button" ID="btnLogin" runat="server" Text="로그인" />
-               <p class ="sign_up_message">회원이 아니라시면, <a href="/"><span style="color:#0a66c2;">&nbsp;회원가입</span></a>하세요!</p>
-
+               <p class ="sign_up_message">회원이 아니라시면, <a href="/Account/Register.aspx"><span style="color:#0a66c2;">&nbsp;회원가입</span></a>하세요!</p>
            </div>
        </div>
    </main>

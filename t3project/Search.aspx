@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Search.aspx.cs" Inherits="Search" %>
 
-<asp:Content ContentPlaceHolderID="searchContent" runat="server">
+<asp:Content ContentPlaceHolderID="cssContent" runat="server">
     <link href="/public/css/search.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </asp:Content>
@@ -39,19 +39,11 @@
                     <td class="result_search_body"><asp:Label ID="searchResRoom" runat="server" Text='<%# Eval("room") %>'></asp:Label></td>
                 </tr>
             </ItemTemplate>
-
             <SelectedItemTemplate>
             </SelectedItemTemplate>
         </asp:DataList>
-        <br /><br />
-
-        
-
-            
+        <br /><br />  
      </div>
   </div>
-
-
-
 </asp:Content>
 

@@ -16,7 +16,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/Search.aspx");
+        Response.Redirect("/Search.aspx"); 
     }
 
     protected void btnLectureManage_Click(object sender, EventArgs e)
@@ -27,5 +27,19 @@ public partial class _Default : System.Web.UI.Page
     protected void btnTeacherManage_Click(object sender, EventArgs e)
     {
         Response.Redirect("/AddLecture.aspx");
+    }
+
+    protected void timetable_Click(object sender, EventArgs e)
+    {
+        /*
+         * 요일까지 받아서 쿼리하는 걸 생각해보기
+         */
+        string lectureId = ((LinkButton)sender).ID;
+        string[] lectureTokens = lectureId.Split('_');
+        string lectureNumber = lectureTokens[1];
+
+        string queryString = "lecture=" + Server.UrlEncode(lectureNumber); 
+
+        Response.Redirect("LectureInfo.aspx?" + queryString);
     }
 }
