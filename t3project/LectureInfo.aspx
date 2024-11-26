@@ -38,7 +38,7 @@
                <asp:Label ID="lbltable_title" runat="server" Text="수업시간 상세 정보"></asp:Label>
            </div>
            <div class ="lecture_infoContainer">
-               <p class ="lecture_container_title">수업정보 확인(관리자)</p>
+               <p class ="lecture_container_title">수업정보 확인</p>
                <div class ="lecture_info_body"> 
                    <div>
                        <span class="title">수업이름</span>
@@ -61,13 +61,13 @@
                    </div>
                    <hr />
                    <div>
-                       <span class="title">게시판</span>
+                       <span class="title">메모내용</span>
                        <asp:Label class="body" ID="lblNote" runat="server" Text="메모"></asp:Label>
                    </div>
                </div>
                <div style="margin-top:15px">
                    <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" OnClick="btnToList_Click"  />
-                   <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="강의 수정" />
+                   <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="강의 수정" onClick ="btnLectureModify_Click"/>
                    <asp:Button CssClass ="button_function" style ="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Text="강의 삭제" />
                </div>
            </div>
