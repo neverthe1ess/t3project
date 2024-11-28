@@ -18,6 +18,7 @@
 }
 
 
+
 .lecture_infoContainer {
     margin: 40px 140px 40px 140px;
 }
@@ -28,6 +29,10 @@
     line-height: 30px;
     padding-bottom: 20px;
     border-bottom: 2px solid #585757;
+}
+
+.lecture_info_body{
+    margin-top:10px;
 }
 
 .lecture_infoContainer > div > div {
@@ -45,11 +50,24 @@
         width: 70%;
         font-size: 20px;
 }
+.line_container {
+    padding: 15px 0;
+    display: flex;
+}
+.element_validator {
+    margin: 5px 0 0 20px;
+    color: #FE642E;
+}
 
+.title {
+        width: 15%;
+        font-weight: 700;
+        font-size: 20px;
+}
 
 
 .form_box {
-    padding: 10px;
+    padding: 5px 10px;
     text-align: left;
     font-size: 20px;
     font-weight: 400;
@@ -59,23 +77,12 @@
     width: 300px;
 }
 
-.form_box_multi {
-    padding: 10px;
-    text-align: left;
-    font-size: 20px;
-    font-weight: 400;
-    height: 40px;
-    border: 1px solid #CBCBCB;
-    border-radius: 3px;
-    width: 300px;
-    height: 150px;
-}
 
 hr {
     border: 0;
     background-color: #E8E8E8;
     height: 2px;
-    margin-top: 3px;
+    margin: 10px 0;
 }
 
 .button_function {
