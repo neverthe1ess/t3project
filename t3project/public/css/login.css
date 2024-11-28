@@ -64,7 +64,7 @@ table {
     justify-content: center;
     min-height: 30vh;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    padding:20px 30px;
+    padding:25px 65px;
 }
 .login_element{
     width:100%;
@@ -73,7 +73,6 @@ table {
     padding:15px;
     
 }
-
 .login_validator {
     font-size: 20px;
     font-weight: 500;
@@ -112,6 +111,7 @@ footer {
     color: #8a8f95;
     padding: 0 100px;
     background-color: #f7f8f9;
+    margin-top:17%;
 }
 
 .footer_title {

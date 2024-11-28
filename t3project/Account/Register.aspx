@@ -47,7 +47,7 @@
                               <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="보안 대답이 필요합니다." ToolTip="보안 대답이 필요합니다." CssClass="element_validator"  ValidationGroup="CreateUserWizard1"></asp:RequiredFieldValidator>
                           </div>
                           <div class="line_container">
-                              <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" Display="Dynamic" ErrorMessage="[암호]와 [암호 확인]에 입력한 내용은 일치해야 합니다." ValidationGroup="CreateUserWizard1"></asp:CompareValidator>
+                              <asp:CompareValidator ID="CompareValidator1" style="color: #FE642E;" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" Display="Dynamic" ErrorMessage="[암호]와 [암호 확인]에 입력한 내용은 일치해야 합니다."  ValidationGroup="CreateUserWizard1"></asp:CompareValidator>
                           </div>
                           <br />
                            <div class="line_container">
@@ -55,16 +55,40 @@
                           </div>
                          </div>
                        </ContentTemplate>
+                       <CustomNavigationTemplate>
+                           <div style="margin-top:15px; text-align:center;">
+                                <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="이전으로" PostBackUrl="~/Account/Login.aspx" />
+                                <asp:Button CssClass ="button_function" ID="StepNextButton_2" runat="server" CommandName="MoveNext" Text="회원가입" ValidationGroup="CreateUserWizard1" />
+                          </div> 
+                       </CustomNavigationTemplate>
                    </asp:CreateUserWizardStep>
                    <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
+                       <ContentTemplate>
+                           <br /><br />
+                           <table style="font-size:100%; width:100%;">
+                               <tr>
+                                   <td align="center">
+                                       <div>
+                                           <asp:Image ID="Image1" runat="server" style=" width:150px; " ImageUrl="~/Account/check.png" />
+                                       </div>
+                                   </td>    
+                               </tr>                                    
+                               <tr>
+                                   <td class = "success_title" align ="center">계정을 만들었습니다!</td>
+                               </tr>
+                               <tr>
+                                   <td><br /><br /></td>
+                               </tr>
+                               <tr>
+                                   <td align="center">
+                                       <asp:Button CssClass ="button_function" style ="background:#0a66c2; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="홈으로" PostBackUrl="~/index.aspx" />
+                                   </td>
+                               </tr>
+                           </table>
+                       </ContentTemplate>
                    </asp:CompleteWizardStep>
                </WizardSteps>
            </asp:CreateUserWizard>
-
-           <div style="margin-top:15px; text-align:center;">
-               <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="이전으로" PostBackUrl="~/Account/Login.aspx" />
-               <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="회원가입" />
-           </div>
        </div>
 </asp:Content>
 
