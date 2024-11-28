@@ -6,63 +6,6 @@ body{
 table {
     border-collapse:collapse;
 }
-.navbars {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.navbars_all{
-    width: 100%;
-    display: flex;
-    padding: 35px 150px 0px 150px;
-    align-items: center;
-}
-
-.navbar_logo{
-    font-size:30px;
-    display: flex;
-    align-items:center;
-}
-.navbar_function{
-    margin-left:1%;
-}
-
-.navbar_button{
-    padding: 0 20px;
-    font-size:1.5em;
-    font-weight:700;
-}
-
-.navbar_hr {
-    border: 0;
-    height: 2px;
-    margin-top: 2%;
-}
-
-.location_buttonbar{
-    padding:0px 30px;
-    text-align:center;
-    display:flex;
-    justify-content:center;
-}
-
-.location_button{
-    padding:10px 40px;
-
-}
-
-.location_buttons {
-    padding: 0px 30px;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.logoimg {
-        display: block;
-        height: 35px;
-        margin-top:3px;
-}
 
 
 .lecture_infoContainer{

@@ -8,60 +8,12 @@ table {
     border-collapse: collapse;
 }
 
-.navbars {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.navbars_all {
-    width: 100%;
-    display: flex;
-    padding: 35px 150px 0px 150px;
-    align-items: center;
-}
-
-.navbar_logo {
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar_function {
-    margin-left: 1%;
-}
-
-.navbar_button {
-    padding: 0 20px;
-    font-size: 1.5em;
-    font-weight: 700;
-}
-
-.navbar_hr {
-    border: 0;
-    height: 2px;
-    margin-top: 2%;
-}
-
-.logoimg {
-    display: block;
-    height: 35px;
-    margin-top: 3px;
-}
-
 .function_title {
     text-align: center;
     margin-top: 5%;
     font-size: 40px;
     font-weight: 700;
     color: #555555;
-}
-
-.function_title h1 {
-        font-size: 40px;
-        font-weight: 700;
-        color: #555555;
-        line-height: 100%;
 }
 
 .lecture_infoContainer {
@@ -81,16 +33,17 @@ table {
     display: flex;
 }
 
-    .lecture_infoContainer > div > div > span.title {
+.lecture_infoContainer > div > div > span.title {
         width: 15%;
         font-weight: 700;
         font-size: 20px;
-    }
+}
 
-    .lecture_infoContainer > div > div > span.body {
+ .lecture_infoContainer > div > div > span.body {
         width: 70%;
         font-size: 20px;
-    }
+
+ }
 
 .form_box {
     padding: 10px;
@@ -130,6 +83,6 @@ footer {
     font-size: 1.2em;
 }
 
-    .footer_title > b {
+.footer_title > b {
         font-weight: 700;
-    }
+}

@@ -28,6 +28,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             // 로그아웃　버튼　눌렀을　때
             FormsAuthentication.SignOut();
             loginBtn.Text = "&nbsp; &nbsp; 로그인";
+            Response.Redirect("~/index.aspx");
         }
     }
 
