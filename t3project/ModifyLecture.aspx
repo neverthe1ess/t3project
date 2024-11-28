@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ModifyLecture.aspx.cs" Inherits="ModifyLecture" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cssContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link href="/public/css/modifylecture.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="maincontent" Runat="Server">
     <div class ="function_title">
     <asp:Label ID="lbltable_title" runat="server" Text="수업정보 수정"></asp:Label>
 </div>

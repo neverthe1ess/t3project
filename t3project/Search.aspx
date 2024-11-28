@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Search.aspx.cs" Inherits="Search" %>
 
-<asp:Content ContentPlaceHolderID="cssContent" runat="server">
+<asp:Content ContentPlaceHolderID="head" runat="server">
     <link href="/public/css/search.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </asp:Content>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="maincontent" Runat="Server">
   <div class ="total_container">
     <div class ="function_title">
          <asp:Label ID="lbltable_title" runat="server" Text="검색"></asp:Label>

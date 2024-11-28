@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link href="/public/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="/public/css/master.css" rel="stylesheet" type="text/css" />
-    <title></title>
-    <asp:ContentPlaceHolder ID="cssContent" runat="server" ></asp:ContentPlaceHolder>
+    <title>t3Project</title>
+    <asp:ContentPlaceHolder ID="head" runat="server" ></asp:ContentPlaceHolder>
 </head>
 <body>
 <form id="form1" runat="server">
@@ -16,13 +16,14 @@
        <nav class="navbars">
           <div class ="navbars_all">
             <div class="navbar_logo" style="font-weight:600">
-               <a href="/Default.aspx" style="color:#A2988F; display:flex";>
-               <img class ="logoimg" src="~/App_Data/logo.png" alt="로고 이미지" />
+               <a href="/index.aspx" style="color:#A2988F; display:flex";>
+               <img class ="logoimg" src="logo.png" alt="로고 이미지" />
                <span>&nbsp;&nbsp;|&nbsp;&nbsp;학원 시간표 시스템</span>
                </a>
            </div>
            <div class="navbar_function">
-              <a class="navbar_button" href="/LectureInfo.aspx">수업관리 </a>
+              <a class="navbar_button" href="/LectureInfo.aspx">수업관리</a>
+              <a class="navbar_button" href="/LectureInfo.aspx">강사관리</a>
               <a class="navbar_button" href="/Board.aspx" >게시판</a>
               <a class="navbar_button" href="/Search.aspx" >검색</a>
            </div> 
@@ -34,7 +35,7 @@
        <hr class ="navbar_hr" style="background-color: #e0d9d3;"/>   
    </header>
    <main>
-     <asp:ContentPlaceHolder id="head" runat="server">
+     <asp:ContentPlaceHolder id="maincontent" runat="server">
      </asp:ContentPlaceHolder>
    </main>
   <footer>

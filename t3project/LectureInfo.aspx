@@ -1,41 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LectureInfo.aspx.cs" Inherits="LectureInfo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="LectureInfo.aspx.cs" Inherits="LectureInfo" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeaTime</title>
-    <link href="/public/css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="/public/css/lectureinfo.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <form id="form1" runat="server">
-       <header>
-           <nav class="navbars">
-              <div class ="navbars_all">
-                <div class="navbar_logo" style="font-weight:600">
-                   <a href="/Default.aspx" style="color:#A2988F; display:flex";>
-                   <img class ="logoimg" src="logo.png" alt="로고 이미지" />
-                   <span>&nbsp;&nbsp;|&nbsp;&nbsp;학원 시간표 시스템</span>
-                   </a>
-               </div>
-               <div class="navbar_function">
-                  <a class="navbar_button" href="/">수업관리 </a>
-                  <a class="navbar_button" href="/Board.aspx" >게시판</a>
-                  <a class="navbar_button" href="/Search.aspx" >검색</a>
-               </div> 
-                <div style="flex:1 0 0">
-               </div>
-               <a style="font-size:24px" href="/"> &nbsp; &nbsp; 로그인 </a>
-             </div> 
-           </nav>
-           <hr class ="navbar_hr" style="background-color: #e0d9d3;"/>   
-       </header>
-       <main>
-           <div class ="function_title">
-               <asp:Label ID="lbltable_title" runat="server" Text="수업시간 상세 정보"></asp:Label>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+     <link href="/public/css/lectureinfo.css" rel="stylesheet" type="text/css" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="maincontent" Runat="Server">
+    <div class ="function_title">
+        <asp:Label ID="lbltable_title" runat="server" Text="수업시간 상세 정보"></asp:Label>
            </div>
            <div class ="lecture_infoContainer">
                <p class ="lecture_container_title">수업정보 확인</p>
@@ -71,20 +41,5 @@
                    <asp:Button CssClass ="button_function" style ="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Text="강의 삭제" />
                </div>
            </div>
-       </main>
-      <footer>
-          <div>
-              <span class="footer_title">
-                  <b>TTT.COM</b>
-              </span>
-          </div>
-          <div>             
-              <span>
-                  <p>Designed By 이정빈, 조희원</p>
-              </span></div>
-          <div></div>
-          <div></div>
-     </footer>
-    </form>
-</body>
-</html>
+</asp:Content>
+
