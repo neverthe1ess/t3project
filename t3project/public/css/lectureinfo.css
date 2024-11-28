@@ -64,20 +64,6 @@ table {
         margin-top:3px;
 }
 
-.function_title{
-    text-align: center;
-    margin-top: 5%;
-    font-size:40px;
-    font-weight:700;
-    color:#555555;
-}
-
-.function_title h1{
-    font-size: 40px;
-    font-weight: 700;
-    color: #555555;
-    line-height: 100%;
-}
 
 .lecture_infoContainer{
     margin:40px 140px 40px 140px;

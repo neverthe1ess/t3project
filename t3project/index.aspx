@@ -6,7 +6,7 @@
     <script type="text/javascript">
         function copyUrlToclipboard() {
             var urlToCopy = window.location.href;
-            // 최신 api라서 구형 브라우저에서는 지원안됨
+            // 최신 api라서 구형 브라우저에서는 지원안됨 
             navigator.clipboard.writeText(urlToCopy).then(function () {
                 alert("URL이 클립보드에 복사되었습니다.");
              }).catch(function (error) {

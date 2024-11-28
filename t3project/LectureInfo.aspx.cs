@@ -15,14 +15,4 @@ public partial class LectureInfo : System.Web.UI.Page
         //btnLectureModify.Visible = false;
         //btnLectureRemove.Visible = false;
     }
-
-    protected void btnToList_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("/default.aspx");
-    }
-
-    protected void btnLectureModify_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("/ModifyLecture.aspx");
-    }
 }

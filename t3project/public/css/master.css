@@ -45,7 +45,7 @@ table {
 
 .function_title {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 70px;
     font-size: 40px;
     font-weight: 700;
     color: #555555;
@@ -67,6 +67,7 @@ hr {
 
 
 footer {
+    margin-top: 10%;
     color: #8a8f95;
     padding: 0 100px;
     background-color: #f7f8f9;

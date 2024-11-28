@@ -9,7 +9,7 @@
        </div>
        <div class="lecture_infoContainer">
            <p class ="lecture_container_title">수업정보 등록(관리자)</p>
-           <div class ="lecture_info_body"> <a href="packages.config">packages.config</a>
+           <div class ="lecture_info_body">
                <div>
                    <span class="title">수업시간</span>
                    <asp:Label class="body" ID="lblLectureTime" runat="server" Text="13:00~14:00"></asp:Label>

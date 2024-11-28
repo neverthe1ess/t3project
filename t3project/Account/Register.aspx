@@ -30,7 +30,7 @@
                <hr />
            </div>
            <div style="margin-top:15px; text-align:center;">
-               <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="이전으로" />
+               <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="이전으로" PostBackUrl="~/Account/Login.aspx" />
                <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="회원가입" />
            </div>
        </div>
