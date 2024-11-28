@@ -9,9 +9,27 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        string controlBtnId = "";
+        // 초기 페이지 일때 오늘 요일 강조(쿼리 스트링이 없을때)
+        if (Request.QueryString["dayof"] == null)
+        {
+            DateTime nowDay = DateTime.Now;
+            int day = (int)nowDay.DayOfWeek;
+            controlBtnId = "btnDay" + day.ToString();
+        } else // 선택한 요일 강조 
+        {
+            controlBtnId = Request.QueryString["dayof"];
+        }
+        btnColor_Set(controlBtnId);
     }
 
+    // 선택한 요일을 색 변경
+    private void btnColor_Set(string controlBtnId)
+    {
+        Button dayButton = (Button)FindControl(controlBtnId);
+        dayButton.BackColor = System.Drawing.Color.SlateGray;
+        dayButton.ForeColor = System.Drawing.Color.White;
+    }
 
 
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -41,5 +59,12 @@ public partial class _Default : System.Web.UI.Page
         string queryString = "lecture=" + Server.UrlEncode(lectureNumber); 
 
         Response.Redirect("LectureInfo.aspx?" + queryString);
+    }
+
+    protected void btnDay_Click(object sender, EventArgs e)
+    {
+        string sendByObjectName = ((Button)sender).ID;  //downcasting
+        string btnQueryString = "dayof=" + Server.UrlEncode(sendByObjectName);
+        Response.Redirect("Default.aspx?" + btnQueryString);
     }
 }

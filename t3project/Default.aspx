@@ -10,6 +10,17 @@
     <link href="/public/css/reset.css" rel="stylesheet" type="text/css" />
     <link href="/public/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script type="text/javascript">
+        function copyUrlToclipboard() {
+            var urlToCopy = window.location.href;
+            // 최신 api라서 구형 브라우저에서는 지원안됨
+            navigator.clipboard.writeText(urlToCopy).then(function () {
+                alert("URL이 클립보드에 복사되었습니다.");
+             }).catch(function (error) {
+                alert("클립보드 복사에 실패 ㅠㅠ " + error);
+             });
+         }
+   </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -23,7 +34,8 @@
                    </a>
                </div>
                <div class="navbar_function">
-                  <a class="navbar_button" href="/LectureInfo.aspx">수업관리 </a>
+                  <a class="navbar_button" href="/LectureInfo.aspx">수업관리</a>
+                  <a class="navbar_button" href="/LectureInfo.aspx">강사관리</a>
                   <a class="navbar_button" href="/Board.aspx">게시판</a>
                   <a class="navbar_button" href="/Search.aspx">검색</a>
                </div> 
@@ -40,13 +52,13 @@
            </div>
            <div>
                <div class ="dayofweek_name_cal">
-                   <asp:Button cssClass="dayofweek_button" ID="btnMon" runat="server" Text="월" />
-                   <asp:Button cssClass="dayofweek_button" ID="btnTue" runat="server" Text="화" />
-                   <asp:Button cssClass="dayofweek_button" ID="btnWed" runat="server" Text="수" />
-                   <asp:Button cssClass="dayofweek_button" ID="btnThu" runat="server" Text="목" />
-                   <asp:Button cssClass="dayofweek_button" ID="btnFri" runat="server" Text="금" />
-                   <asp:Button cssClass="dayofweek_button" ID="btnSat" runat="server" Text="토" />
-                   <asp:Button cssClass="dayofweek_button" ID="btnSun" runat="server" Text="일" />
+                   <asp:Button cssClass="dayofweek_button" ID="btnDay1" runat="server" Text="월" OnClick="btnDay_Click" />
+                   <asp:Button cssClass="dayofweek_button" ID="btnDay2" runat="server" Text="화" OnClick="btnDay_Click" />
+                   <asp:Button cssClass="dayofweek_button" ID="btnDay3" runat="server" Text="수" OnClick="btnDay_Click" />
+                   <asp:Button cssClass="dayofweek_button" ID="btnDay4" runat="server" Text="목" OnClick="btnDay_Click"/>
+                   <asp:Button cssClass="dayofweek_button" ID="btnDay5" runat="server" Text="금" OnClick="btnDay_Click"/>
+                   <asp:Button cssClass="dayofweek_button" ID="btnDay6" runat="server" Text="토" OnClick="btnDay_Click" />
+                   <asp:Button cssClass="dayofweek_button" ID="btnDay0" runat="server" Text="일" OnClick="btnDay_Click"/>
                </div>
                <div class ="table_container">
                    <table class="table">
@@ -159,9 +171,9 @@
                    <asp:LinkButton ID="btnSearch" runat="server" CssClass="floating-button" style="border-radius:20px; border-top-right-radius:0; border-bottom-right-radius:0;" OnClick="btnSearch_Click"> <i class="fa fa-search"></i>&nbsp;검색</asp:LinkButton>
                    <asp:Button cssClass="floating-button" ID="btnLectureManage" runat="server" Text="수업 관리" onClick="btnLectureManage_Click"/>
                    <asp:Button cssClass="floating-button" ID="btnTeacherManage" runat="server" Text="강사 관리" onClick="btnTeacherManage_Click"/>
-                   <asp:LinkButton ID="btnPrint" runat="server" CssClass="floating-button"> <i class="fa fa-print"></i>&nbsp;인쇄</asp:LinkButton>
-                   <asp:LinkButton ID="btnShare" runat="server" CssClass="floating-button" style="border-radius:20px; border-top-left-radius:0; border-bottom-left-radius:0;"> <i class="fa fa-share"></i>&nbsp;공유</asp:LinkButton>
-                </div>
+                   <asp:LinkButton ID="btnPrint" runat="server" CssClass="floating-button" OnClientClick="window.print(); return"> <i class="fa fa-print"></i>&nbsp;인쇄</asp:LinkButton>
+                   <asp:LinkButton ID="btnShare" runat="server" CssClass="floating-button" OnClientClick="copyUrlToclipboard(); return" style="border-radius:20px; border-top-left-radius:0; border-bottom-left-radius:0;"> <i class="fa fa-share"></i>&nbsp;공유</asp:LinkButton>
+               </div>
            </div> 
        </main>
       <footer>
