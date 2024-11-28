@@ -138,8 +138,8 @@
     </div>
     <div class="floating-button-container">
         <asp:LinkButton ID="btnSearch" runat="server" CssClass="floating-button" style="border-radius:20px; border-top-right-radius:0; border-bottom-right-radius:0;" OnClick="btnSearch_Click"> <i class="fa fa-search"></i>&nbsp;검색</asp:LinkButton>
-        <asp:Button cssClass="floating-button" ID="btnLectureManage" runat="server" Text="수업 관리" onClick="btnLectureManage_Click"/>
-        <asp:Button cssClass="floating-button" ID="btnTeacherManage" runat="server" Text="강사 관리" onClick="btnTeacherManage_Click"/>
+        <asp:Button cssClass="floating-button" ID="btnLectureManage" runat="server" Text="수업 관리" PostBackUrl="/Admin/ManageLecture.aspx"/>
+        <asp:Button cssClass="floating-button" ID="btnTeacherManage" runat="server" Text="강사 관리" PostBackUrl="/Admin/ManageTeacher.aspx"/>
         <asp:LinkButton ID="btnPrint" runat="server" CssClass="floating-button" OnClientClick="window.print(); return"> <i class="fa fa-print"></i>&nbsp;인쇄</asp:LinkButton>
         <asp:LinkButton ID="btnShare" runat="server" CssClass="floating-button" OnClientClick="copyUrlToclipboard(); return" style="border-radius:20px; border-top-left-radius:0; border-bottom-left-radius:0;"> <i class="fa fa-share"></i>&nbsp;공유</asp:LinkButton>
     </div>

@@ -22,8 +22,8 @@
                </a>
            </div>
            <div class="navbar_function">
-              <a class="navbar_button" href="/LectureInfo.aspx">수업관리</a>
-              <a class="navbar_button" href="/LectureInfo.aspx">강사관리</a>
+              <a class="navbar_button" href="/Admin/ManageLecture.aspx">수업관리</a>
+              <a class="navbar_button" href="/Admin/ManageTeacher.aspx">강사관리</a>
               <a class="navbar_button" href="/Board.aspx" >게시판</a>
               <a class="navbar_button" href="/Search.aspx" >검색</a>
            </div> 

@@ -13,6 +13,9 @@
     footer{
         display:none;
     }
+    .table th{
+        font-size:15px;
+    }
 }
 body{
     font-family: Pretendard;

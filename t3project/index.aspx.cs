@@ -60,7 +60,7 @@ public partial class index : System.Web.UI.Page
 
         string queryString = "lecture=" + Server.UrlEncode(lectureNumber);
 
-        Response.Redirect("LectureInfo.aspx?" + queryString);
+        Response.Redirect("/LectureInfo.aspx?" + queryString);
     }
 
     protected void btnDay_Click(object sender, EventArgs e)

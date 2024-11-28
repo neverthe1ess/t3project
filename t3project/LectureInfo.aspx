@@ -36,8 +36,8 @@
                    </div>
                </div>
                <div style="margin-top:15px">
-                   <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" PostBackUrl="/index.aspx"  />
-                   <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="강의 수정" PostBackUrl="/ModifyLecture.aspx"/>
+                   <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" PostBackUrl="~/index.aspx"  />
+                   <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="강의 수정" PostBackUrl="/Admin/ModifyLecture.aspx"/>
                    <asp:Button CssClass ="button_function" style ="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Text="강의 삭제" />
                </div>
            </div>
