@@ -1,0 +1,132 @@
+﻿body {
+}
+
+.card_container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+.card_container .inner {
+        padding: 16px;
+        width: calc(100% / 4);
+        box-sizing: border-box;
+}
+
+h2,
+p {
+    margin: 0;
+}
+
+.card-item {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin:10px;
+}
+
+.card-item a {
+        text-decoration: none;
+        color: #29363d;
+        display: block;
+}
+
+.card-item img {
+      width: 100%;
+      aspect-ratio: 288/196;
+      object-fit: cover;
+}
+
+.card-text {
+    padding: 24px 16px 16px;
+}
+
+.card-text .title {
+        font-size: 26px;
+        font-weight:600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 12px;
+}
+
+.card-text .title + p {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            word-break: break-all;
+            font-size: 12px;
+            color: #5a6a72;
+            line-height: 20px;
+            margin-bottom: 16px;
+}
+
+.underline {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 6px;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .container .inner {
+            width: calc(100% / 3);
+     }
+}
+
+@media (max-width: 900px) {
+    .container {
+        max-width: 600px;
+    }
+
+        .container .inner {
+            width: calc(100% / 2);
+        }
+}
+
+@media (max-width: 767px) {
+.container {
+        max-width: 300px;
+    }
+
+.container .inner {
+        width: 100%;
+    }
+}
+
+.floating-button-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 43%;
+    margin-bottom: 2.5%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.floating-button {
+    margin-left:20px;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    background-color: black;
+    color:white;
+    border: 0.5px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.floating-button:hover {
+        background-color: #a0cfff;
+}

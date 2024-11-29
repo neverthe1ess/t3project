@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link href="/public/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="/public/css/master.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <title>t3Project</title>
     <asp:ContentPlaceHolder ID="head" runat="server" ></asp:ContentPlaceHolder>
 </head>

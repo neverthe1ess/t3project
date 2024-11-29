@@ -22,7 +22,7 @@
                 <asp:ListItem>차영욱T</asp:ListItem>
                 <asp:ListItem>이철희T</asp:ListItem>
                 <asp:ListItem>이은서T</asp:ListItem>
-            </asp:DropDownList>
+            </asp:DropDownList>  
              
         </div>
         <div>
