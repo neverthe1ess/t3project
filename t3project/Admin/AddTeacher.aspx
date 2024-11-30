@@ -24,7 +24,7 @@
                    <asp:FileUpload runat="server" ID="teacherPhotoUpload"></asp:FileUpload>
                </div>
            </div>
-            <asp:Label ID="errorMsg" runat="server" Text="Label" Visible="false"></asp:Label>
+            <asp:Label ID="errorMsg" runat="server" Text="" Visible="false"></asp:Label>
            <div style="margin-top:15px">
                <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" PostBackUrl="~/Admin/ManageTeacher.aspx"/>
                <asp:Button CssClass ="button_function" ID="btnAddTeacher" runat="server" Text="강사 등록" OnClick="btnAddTeacher_Click" />

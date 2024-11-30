@@ -29,9 +29,8 @@ public partial class Admin_ManageTeacher : System.Web.UI.Page
         // 가상의 데이터베이스의 테이블 TEACHER
         DataSet ds = new DataSet();
         da.Fill(ds, "TEACHER");
-        int rowNumber = 0;
         foreach(DataRow row in ds.Tables["TEACHER"].Rows){
-            rowNumber++;
+            int rowNumber = int.Parse(row["teacher_id"].ToString());
             CreateDynamicTeacherCard(row, rowNumber);
         }
     }
@@ -71,8 +70,8 @@ public partial class Admin_ManageTeacher : System.Web.UI.Page
         innerPanel.Controls.Add(articleCardItem);
 
         content_card.Controls.Add(innerPanel);
-
-        link.NavigateUrl = "~/Admin/InfoTeacher.aspx";
+        string queryString = "teacherid=" + Server.UrlEncode(rowNumber.ToString());
+        link.NavigateUrl = "~/Admin/InfoTeacher.aspx?" + queryString;
         teacherImage.ImageUrl = "~/public/images/teacher" +rowNumber.ToString()+ ".jpg";
         titleLabel.InnerText = row["teacher_name"].ToString();
         paragraphContentDescription.InnerHtml = row["teacher_description"].ToString();
