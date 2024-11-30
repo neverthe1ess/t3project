@@ -12,10 +12,10 @@
                        <asp:Login ID="Login1" runat="server" style="width:100%;">
                            <LayoutTemplate>
                                <div>
-                                   <asp:TextBox cssClass="login_element" ID ="UserName" runat="server" placeholder="아이디"></asp:TextBox>
+                                   <asp:TextBox cssClass="login_element" ID ="UserName" runat="server" placeholder="아이디" required></asp:TextBox>
                                </div>
                                <div style="margin-top:10px">
-                                   <asp:TextBox cssClass="login_element" ID="Password" runat="server" TextMode="Password" placeholder="비밀번호"></asp:TextBox>
+                                   <asp:TextBox cssClass="login_element" ID="Password" runat="server" TextMode="Password" placeholder="비밀번호" required></asp:TextBox>
                                </div>
                                <div>
                                    <asp:RequiredFieldValidator ID="UserNameRequired" cssClass="login_validator" runat="server" ControlToValidate="UserName" ErrorMessage="아이디가 필요합니다." ToolTip="사용자 이름이 필요합니다." ValidationGroup="ctl00$Login1"></asp:RequiredFieldValidator>

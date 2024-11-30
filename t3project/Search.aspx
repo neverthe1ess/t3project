@@ -12,7 +12,7 @@
     </div>
     <div class ="search_container">
         <i class="fa fa-search fa-2x" style="padding:20px;"></i>
-        <asp:TextBox cssClass="txtSearch" ID="txtSearch" runat="server" style="height:100%;"  ></asp:TextBox>
+        <asp:TextBox cssClass="txtSearch" ID="txtSearch" runat="server" style="height:100%;" required></asp:TextBox>
     </div>
     <div class ="search_result_container">
         <h1 style="font-size:1.8em; font-weight:bold">수업 검색 결과</h1>

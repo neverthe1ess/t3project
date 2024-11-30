@@ -12,7 +12,7 @@
            <div class ="lecture_info_body">
                <div>
                    <span class="title">강사이름</span>
-                   <asp:TextBox CssClass ="form_box" ID="tbTeacherName" runat="server" Height="50px" Width="150px"></asp:TextBox>
+                   <asp:TextBox CssClass ="form_box" ID="tbTeacherName" runat="server" Height="50px" Width="150px" required></asp:TextBox>
                </div>
                <div>
                    <span class="title">강사이력 설명</span>
@@ -21,7 +21,7 @@
                <hr />
                <div>
                    <span class="title">강사사진</span>
-                   <asp:FileUpload runat="server" ID="teacherPhotoUpload"></asp:FileUpload>
+                   <asp:FileUpload runat="server" ID="teacherPhotoUpload" accept=".jpg"></asp:FileUpload>
                </div>
            </div>
             <asp:Label ID="errorMsg" runat="server" Text="" Visible="false"></asp:Label>
