@@ -1,0 +1,27 @@
+﻿body {
+}
+.success_title {
+    font-weight: 700;
+    font-size: 45px;
+}
+
+
+hr {
+    border: 0;
+    background-color: #E8E8E8;
+    height: 2px;
+    margin: 10px 0;
+}
+
+.button_function {
+    margin: 10px 20px 10px 0px;
+    border: 1px solid #DF633B;
+    border-radius: 10px;
+    background: #DF633B;
+    color: white;
+    padding: 10px 50px;
+}
+
+footer{
+    margin-top:25%;
+}
