@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="maincontent" Runat="Server">
     <div class ="function_title">
-           <asp:Label ID="lbltable_title" runat="server" Text="로그인"></asp:Label>
+           <asp:Label ID="lbltable_title" runat="server" Text="관리자 로그인"></asp:Label>
            <div class ="login_container">
                <asp:LoginView ID="LoginView1" runat="server">
                    <AnonymousTemplate>
