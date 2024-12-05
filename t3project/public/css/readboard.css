@@ -39,24 +39,9 @@ table {
         font-size: 20px;
 }
 
- .lecture_infoContainer > div > div > span.body {
+.lecture_infoContainer > div > div > span.body {
         width: 70%;
         font-size: 20px;
-
- }
-
-.bottom-bordered-grid .row-bottom-border td {
-    border-bottom: 1.5px solid rgb(221, 223, 224);
-    padding:10px;
-    font-size:20px;
-    font-weight:500;
-}
-
-
-.gridPager input {
-    margin-top:10px;
-    width: 34px; /* 원하는 너비 */
-    height: 38px; /* 원하는 높이 */
 }
 
 .form_box {

@@ -8,18 +8,18 @@
        <asp:Label ID="lbltable_title" runat="server" Text="게시판"></asp:Label>
    </div>
     <div class="lecture_infoContainer">
-        <br /><br />
+        <p class ="lecture_container_title">글 목록</p>
         <asp:SqlDataSource ID="dSource" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_ConnectionString %>" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [serial_no], [writer], [title], [ref_id], [inner_id], [depth], [read_count], [del_flag], [reg_date] FROM [board] ORDER BY [ref_id] DESC, [inner_id]"></asp:SqlDataSource>
     <asp:GridView ID="gvList" runat="server" DataSourceID="dSource" 
             AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
             AllowPaging="True" GridLines="None" PagerSettings-Mode="NextPrevious" Width="100%"
             CssClass="bottom-bordered-grid">
             <RowStyle BackColor="white" CssClass="row-bottom-border"/>
-            <HeaderStyle BackColor="white" Font-Bold="True" ForeColor="black" />
-            <PagerStyle BackColor="#FFFFFF" HorizontalAlign="Left" />
-            <PagerSettings 
-                NextPageImageUrl="/WebEx/13/images/btn_next.gif"
-                PreviousPageImageUrl="/WebEx/13/images/btn_prev.gif" />
+            <HeaderStyle BackColor="white" Font-Size="22px" Font-Bold="True" ForeColor="black" />
+            <PagerStyle BackColor="#FFFFFF" HorizontalAlign="Left" CssClass="gridPager"/>
+            <PagerSettings
+                NextPageImageUrl="~/public/css/img/btn_next.png"
+                PreviousPageImageUrl="~/public/css/img/btn_prev.png" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <EmptyDataTemplate>
                 등록된 게시물이 없습니다.
@@ -54,9 +54,9 @@
                 </asp:BoundField>
             </Columns>
         </asp:GridView>
-       <div style="margin-top:15px">
-           <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" PostBackUrl="~/Admin/ManageTeacher.aspx"  />
-           <asp:Button CssClass ="button_function" style ="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Text="글쓰기" />  
+       <div style="margin-top:30px;">
+           <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="홈으로" PostBackUrl="~/index.aspx"  />
+           <asp:Button CssClass ="button_function" ID="btnContentWrite" runat="server" Text="글쓰기" PostBackUrl="~/Board/Write.aspx" />  
        </div>
     </div>
 
