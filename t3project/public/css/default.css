@@ -42,7 +42,7 @@ table {
 
 .dayofweek_button{
    border-radius:50%;
-   border:0.5px solid black;
+   border:1px solid black;
    font-size:40px;
    font-weight:600;
    width:70px;

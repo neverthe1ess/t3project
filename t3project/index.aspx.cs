@@ -8,9 +8,9 @@ using System.Web.Security;
 
 public partial class index : System.Web.UI.Page
 {
+    private string controlBtnId = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        string controlBtnId = "";
         // 초기 페이지 일때 오늘 요일 강조(쿼리 스트링이 없을때)
         if (Request.QueryString["dayof"] == null)
         {

@@ -129,7 +129,7 @@
                      <td><asp:LinkButton ID="timetable_48" runat="server" Text="48" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
                      <td><asp:LinkButton ID="timetable_58" runat="server" Text="58" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
                      <td><asp:LinkButton ID="timetable_68" runat="server" Text="68" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
-                     <td><asp:LinkButton ID="timetable_78" runat="server" Text="78" OnClick="timetable_Click" CssClass="table_element" BackColor="MediumBlue"></asp:LinkButton></td>
+                     <td><asp:LinkButton ID="timetable_78" runat="server" Text="78" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
                      <td><asp:LinkButton ID="timetable_88" runat="server" Text="88" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
                  </tr>
              </tbody>
