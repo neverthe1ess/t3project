@@ -17,17 +17,16 @@
         <hr />
         <div>
             <span class="title">강사이름</span>
-            <asp:DropDownList class="body" ID="ddlTeacherList" runat="server" >
-                <asp:ListItem>이정빈T</asp:ListItem>
-                <asp:ListItem>차영욱T</asp:ListItem>
-                <asp:ListItem>이철희T</asp:ListItem>
-                <asp:ListItem>이은서T</asp:ListItem>
-            </asp:DropDownList>  
-             
-        </div>
-        <div>
-            <span class="title">수업장소</span>
-            <asp:TextBox CssClass="form_box" ID ="tbLectureRoom" runat="server" Text="DB에서 가져올 기존 수업장소"></asp:TextBox>
+            <asp:DropDownList ID="teacher_name" runat="server" AutoPostBack="True" 
+            onselectedindexchanged="Teacher_SelectedIndexChanged">
+        </asp:DropDownList>
+    </div>
+
+         <div>
+            <span class="title">과목</span>
+            <asp:DropDownList ID="class_name" runat="server" AutoPostBack="True" 
+            onselectedindexchanged="Class_SelectedIndexChanged">
+            </asp:DropDownList>
         </div>
         <div>
             <span class="title">수업내용</span>
