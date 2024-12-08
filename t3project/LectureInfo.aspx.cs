@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class LectureInfo : System.Web.UI.Page
+public partial class LectureInfo : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -15,65 +11,132 @@ public partial class LectureInfo : System.Web.UI.Page
         {
             LoadLectureInfo();
         }
-
-        lblLectureTime.Text = Request.QueryString["lecture"];
-
-        // if(관리자가 아니면)
-        //btnLectureModify.Visible = false;
-        //btnLectureRemove.Visible = false;
     }
 
-    /// <summary>
-    /// 데이터베이스에서 수업 정보를 가져와 화면에 표시
-    /// </summary>
+    protected void btnLectureModify_Click(object sender, EventArgs e)
+    {
+        string lectureID = GetLectureID(); // LectureID 가져오기
+        if (!string.IsNullOrEmpty(lectureID))
+        {
+            // ModifyLecture.aspx로 LectureID 전달
+            string queryString = "LectureID=" + Server.UrlEncode(lectureID); // lectureID 값을 URL 인코딩
+            Response.Redirect("Admin/ModifyLecture.aspx?" + queryString);
+
+        }
+        else
+        {
+            ShowMessage("수업 ID가 전달되지 않았습니다.");
+        }
+    }
+
+    protected void btnLectureRemove_Click(object sender, EventArgs e)
+    {
+        string lectureID = GetLectureID();
+        if (lectureID != null)
+        {
+            DeleteLecture(lectureID);
+        }
+        else
+        {
+            ShowMessage("수업 ID가 전달되지 않았습니다.");
+        }
+    }
+
     private void LoadLectureInfo()
     {
-        // Web.config에 저장된 연결 문자열 가져오기
+        string lectureID = GetLectureID();
+        if (lectureID == null)
+        {
+            ShowMessage("수업 ID가 전달되지 않았습니다.");
+            return;
+        }
+
+        string query = "SELECT 강사, 과목, 시간, 수업내용, 메모 FROM class WHERE 강의ID = @LectureID";
+        ExecuteQuery(query, lectureID, reader =>
+        {
+            if (reader.Read())
+            {
+                lblTeacherName.Text = reader["강사"].ToString();
+                lblLectureTitle.Text = reader["과목"].ToString();
+                lblLectureDescription.Text = reader["수업내용"].ToString();
+                lblNote.Text = reader["메모"].ToString();
+            }
+            else
+            {
+                ShowMessage("수업 정보를 찾을 수 없습니다.");
+            }
+        });
+    }
+
+    private void DeleteLecture(string lectureID)
+    {
+        string query = "DELETE FROM class WHERE 강의ID = @LectureID";
+        ExecuteNonQuery(query, lectureID, rowsAffected =>
+        {
+            ShowMessage(rowsAffected > 0
+                ? "강의가 성공적으로 삭제되었습니다."
+                : "강의를 삭제하는 중 문제가 발생했습니다.");
+        });
+    }
+
+
+
+
+    private string GetLectureID()
+    {
+        return Request.QueryString["LectureID"];
+    }
+
+    private void ExecuteQuery(string query, string lectureID, Action<SqlDataReader> handleData)
+    {
         string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
 
-        // 예제: 수업 정보를 특정 ID 기준으로 가져오는 쿼리
-        string query = "SELECT 강사, 과목, 수업시간, 수업내용, 메모 FROM lecture WHERE LectureID = @LectureID";
-
         using (SqlConnection connection = new SqlConnection(connectionString))
+        using (SqlCommand command = new SqlCommand(query, connection))
         {
+            command.Parameters.AddWithValue("@LectureID", lectureID);
             try
             {
                 connection.Open();
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    // ModifyLecture에서 전달된 LectureID를 사용
-                    string lectureID = Request.QueryString["LectureID"];
-
-                    if (string.IsNullOrEmpty(lectureID))
-                    {
-                        lbltable_title.Text = "수업 ID가 전달되지 않았습니다.";
-                        return;
-                    }
-
-                    command.Parameters.AddWithValue("@LectureID", lectureID);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            lblTeacherName.Text = reader["강사"].ToString();
-                            lblLectureTitle.Text = reader["과목"].ToString();
-                            lblLectureTime.Text = reader["수업시간"].ToString();
-                            lblLectureDescription.Text = reader["수업내용"].ToString();
-                            lblNote.Text = reader["메모"].ToString();
-                        }
-                        else
-                        {
-                            lbltable_title.Text = "수업 정보를 찾을 수 없습니다.";
-                        }
-                    }
+                    handleData(reader);
                 }
             }
             catch (Exception ex)
             {
-                lbltable_title.Text = "수업 정보 로드 중 오류 발생: " + ex.Message;
+                ShowMessage("데이터 처리 중 오류 발생: " + ex.Message);
             }
         }
     }
+
+    private void ExecuteNonQuery(string query, string lectureID, Action<int> handleResult)
+    {
+        string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        using (SqlCommand command = new SqlCommand(query, connection))
+        {
+            command.Parameters.AddWithValue("@LectureID", lectureID);
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                handleResult(rowsAffected);
+            }
+            catch (Exception ex)
+            {
+                ShowMessage("데이터 처리 중 오류 발생: " + ex.Message);
+            }
+        }
+    }
+
+
+
+    private void ShowMessage(string message)
+    {
+        lbltable_title.Text = message;
+    }
 }
+
+

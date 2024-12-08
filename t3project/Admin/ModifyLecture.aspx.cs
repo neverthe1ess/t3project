@@ -1,128 +1,122 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Web.UI.WebControls;
 
 public partial class ModifyLecture : System.Web.UI.Page
 {
+    private string ConnectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            LoadTeacherData(); // 강사 데이터 로드
-            LoadClassData();   // 과목 데이터 로드
+            LoadLectureData(); // 강의 데이터 로드
         }
     }
 
     /// <summary>
-    /// teacher 테이블의 강사 데이터를 DropDownList에 로드
+    /// Load lecture data using LectureID from query string.
     /// </summary>
-    private void LoadTeacherData()
+    private void LoadLectureData()
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
-        string query = "SELECT 강사 FROM teacher";
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        string lectureID = GetLectureID(); // LectureID 가져오기
+        if (string.IsNullOrWhiteSpace(lectureID))
         {
+            ShowMessage("수업 ID가 제공되지 않았습니다.");
+            return;
+        }
+
+        string query = "SELECT 강사, 과목, 수업내용, 메모 FROM class WHERE 강의ID = @LectureID";
+        using (var connection = new SqlConnection(ConnectionString))
+        using (var command = new SqlCommand(query, connection))
+        {
+            command.Parameters.AddWithValue("@LectureID", lectureID);
+
             try
             {
                 connection.Open();
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    if (reader.Read())
                     {
-                        teacher_name.Items.Clear();
-                        teacher_name.Items.Add(new ListItem("-- 선택하세요 --", ""));
-
-                        while (reader.Read())
-                        {
-                            ListItem item = new ListItem
-                            {
-                                Text = reader["강사"].ToString(),
-                            };
-                            teacher_name.Items.Add(item);
-                        }
+                        tbTeacherName.Text = reader["강사"].ToString();
+                        tbClassName.Text = reader["과목"].ToString();
+                        tbLectureDescription.Text = reader["수업내용"].ToString();
+                        tbMemo.Text = reader["메모"].ToString();
+                    }
+                    else
+                    {
+                        ShowMessage("해당 강의 정보를 찾을 수 없습니다.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                lbltable_title.Text = "강사 데이터 로드 중 오류 발생: " + ex.Message;
+                ShowMessage("강의 데이터 로드 중 오류 발생: " + ex.Message);
             }
         }
     }
 
     /// <summary>
-    /// class 테이블의 과목 데이터를 DropDownList에 로드
+    /// Update lecture information based on user input.
     /// </summary>
-    private void LoadClassData()
+    protected void btnLectureModify_Click(object sender, EventArgs e)
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
-        string query = "SELECT 과목 FROM class";
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        string lectureID = GetLectureID(); // LectureID 가져오기
+        if (string.IsNullOrWhiteSpace(lectureID))
         {
+            ShowMessage("수업 ID가 제공되지 않았습니다.");
+            return;
+        }
+
+        string updateSQL = @"UPDATE class 
+                             SET 강사 = @Teacher, 과목 = @Class, 수업내용 = @Description, 메모 = @Memo 
+                             WHERE 강의ID = @LectureID";
+        using (var connection = new SqlConnection(ConnectionString))
+        using (var command = new SqlCommand(updateSQL, connection))
+        {
+            command.Parameters.AddWithValue("@LectureID", lectureID);
+            command.Parameters.AddWithValue("@Teacher", tbTeacherName.Text ?? string.Empty);
+            command.Parameters.AddWithValue("@Class", tbClassName.Text ?? string.Empty);
+            command.Parameters.AddWithValue("@Description", tbLectureDescription.Text ?? string.Empty);
+            command.Parameters.AddWithValue("@Memo", tbMemo.Text ?? string.Empty);
+
             try
             {
                 connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                if (rowsAffected > 0)
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        class_name.Items.Clear();
-                        class_name.Items.Add(new ListItem("-- 선택하세요 --", ""));
-
-                        while (reader.Read())
-                        {
-                            ListItem item = new ListItem
-                            {
-                                Text = reader["과목"].ToString(),
-                            };
-                            class_name.Items.Add(item);
-                        }
-                    }
+                    ShowMessage("강의 정보가 성공적으로 업데이트되었습니다.");
+                    string queryString = "LectureID=" + Server.UrlEncode(lectureID);
+                    Response.Redirect("/LectureInfo.aspx?" + queryString); // 수정 완료 후 원래 페이지로 이동
+                }
+                else
+                {
+                    ShowMessage("강의 정보 업데이트 실패. 데이터를 확인하세요.");
                 }
             }
             catch (Exception ex)
             {
-                lbltable_title.Text = "과목 데이터 로드 중 오류 발생: " + ex.Message;
+                ShowMessage("강의 정보 업데이트 중 오류 발생: " + ex.Message);
             }
         }
     }
 
     /// <summary>
-    /// 강사 선택 변경 시 이벤트 처리
+    /// Get the LectureID from the query string.
     /// </summary>
-    protected void Teacher_SelectedIndexChanged(object sender, EventArgs e)
+    private string GetLectureID()
     {
-        if (!string.IsNullOrEmpty(teacher_name.SelectedValue))
-        {
-            string selectedTeacherID = teacher_name.SelectedValue;
-            string selectedTeacherName = teacher_name.SelectedItem.Text;
-            lbltable_title.Text = "선택된 강사: " + selectedTeacherName;
-        }
-        else
-        {
-            lbltable_title.Text = "강사가 선택되지 않았습니다.";
-        }
+        return Request.QueryString["LectureID"];
     }
 
     /// <summary>
-    /// 과목 선택 변경 시 이벤트 처리
+    /// Display a message to the user.
     /// </summary>
-    protected void Class_SelectedIndexChanged(object sender, EventArgs e)
+    private void ShowMessage(string message)
     {
-        if (!string.IsNullOrEmpty(class_name.SelectedValue))
-        {
-            string selectedClassID = class_name.SelectedValue;
-            string selectedClassName = class_name.SelectedItem.Text;
-            lbltable_title.Text = "선택된 과목: " + selectedClassName;
-        }
-        else
-        {
-            lbltable_title.Text = "과목이 선택되지 않았습니다.";
-        }
+        lbltable_title.Text = message;
     }
 }

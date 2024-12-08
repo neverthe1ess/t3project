@@ -36,15 +36,14 @@ public partial class Admin_AddTeacher : System.Web.UI.Page
         SqlConnection conn = new SqlConnection(connectionString);
         SqlDataAdapter da = new SqlDataAdapter();
 
-        string selectSQL = "SELECT * FROM TEACHER";
+        string selectSQL = "SELECT * FROM teacher";
         SqlCommand cmdSelect = new SqlCommand(selectSQL, conn);
         da.SelectCommand = cmdSelect;
 
-        string insertSQL = "INSERT INTO TEACHER";
-        insertSQL += "(teacher_id, teacher_name, teacher_description) VALUES "; 
-        insertSQL += "(@tid, @tname, @tdes)";
+        string insertSQL = "INSERT INTO teacher";
+        insertSQL += "(강사, 강사설명) VALUES "; 
+        insertSQL += "(@tname, @tdes)";
         SqlCommand cmdInsert = new SqlCommand(insertSQL, conn);
-        cmdInsert.Parameters.AddWithValue("@tid", teacherId);
         cmdInsert.Parameters.AddWithValue("@tname", tbTeacherName.Text);
         cmdInsert.Parameters.AddWithValue("@tdes", tbTeacherDescription.Text);
         da.InsertCommand = cmdInsert;
@@ -54,19 +53,18 @@ public partial class Admin_AddTeacher : System.Web.UI.Page
         try
         {
             // DATASET에 가상 데이터베이스 테이블 생성 
-            da.Fill(ds, "TEACHER");
+            da.Fill(ds, "teacher");
             // 테이블 선택
-            DataTable table = ds.Tables["TEACHER"];
+            DataTable table = ds.Tables["teacher"];
 
             // 새로 삽입할 행 
             DataRow row = table.NewRow();
-            row["teacher_id"] = teacherId;
-            row["teacher_name"] = tbTeacherName.Text;
-            row["teacher_description"] = tbTeacherDescription.Text;
+            row["강사"] = tbTeacherName.Text;
+            row["강사설명"] = tbTeacherDescription.Text;
 
             table.Rows.Add(row);
 
-            da.Update(ds, "TEACHER");
+            da.Update(ds, "teacher");
         }
         catch (Exception error) {
             errorMsg.Visible = true;
