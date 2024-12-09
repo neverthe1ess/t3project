@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_ManageTeacher : System.Web.UI.Page
 {
-    private string connectionString = WebConfigurationManager.ConnectionStrings["ASPNET_ConnectionString"].ConnectionString;
+    private string connectionString = WebConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
     protected void Page_Load(object sender, EventArgs e)
     {
         if(!IsPostBack) // 초기 게시일때
@@ -23,12 +23,12 @@ public partial class Admin_ManageTeacher : System.Web.UI.Page
     private void GetTeacherDataFromDatabase()
     {
         SqlConnection conn = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand("SELECT teacher_id, teacher_name, teacher_description FROM TEACHER", conn);
+        SqlCommand cmd = new SqlCommand("SELECT 강사, 강사설명 FROM teacher", conn);
         SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-        // 가상의 데이터베이스의 테이블 TEACHER
+        // 가상의 데이터베이스의 테이블 teacher
         DataSet ds = new DataSet();
-        da.Fill(ds, "TEACHER");
+        da.Fill(ds, "teacher");
         foreach(DataRow row in ds.Tables["TEACHER"].Rows){
             int rowNumber = int.Parse(row["teacher_id"].ToString());
             CreateDynamicTeacherCard(row, rowNumber);

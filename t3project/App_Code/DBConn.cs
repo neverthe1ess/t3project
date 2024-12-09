@@ -11,7 +11,7 @@ using System.Web.Configuration;
 /// </summary>
 public class DBConn
 {
-    string connectionString = WebConfigurationManager.ConnectionStrings["ASPNET_ConnectionString"].ConnectionString;
+    string connectionString = WebConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
     public SqlConnection dbConn;
     public DBConn()
     {

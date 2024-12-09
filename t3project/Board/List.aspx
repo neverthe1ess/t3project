@@ -9,7 +9,7 @@
    </div>
     <div class="lecture_infoContainer">
         <p class ="lecture_container_title">글 목록</p>
-        <asp:SqlDataSource ID="dSource" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_ConnectionString %>" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [serial_no], [writer], [title], [ref_id], [inner_id], [depth], [read_count], [del_flag], [reg_date] FROM [board] ORDER BY [ref_id] DESC, [inner_id]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="dSource" runat="server" ConnectionString="<%$ ConnectionStrings:t3projectConnectionString %>" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [serial_no], [writer], [title], [ref_id], [inner_id], [depth], [read_count], [del_flag], [reg_date] FROM [board] ORDER BY [ref_id] DESC, [inner_id]"></asp:SqlDataSource>
     <asp:GridView ID="gvList" runat="server" DataSourceID="dSource" 
             AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
             AllowPaging="True" GridLines="None" PagerSettings-Mode="NextPrevious" Width="100%"

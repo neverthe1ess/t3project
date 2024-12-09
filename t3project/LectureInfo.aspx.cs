@@ -70,7 +70,7 @@ public partial class LectureInfo : Page
 
     private void DeleteLecture(string lectureID)
     {
-        string query = "DELETE FROM class WHERE 강의ID = @LectureID";
+        string query = "UPDATE class SET 과목 = NULL, 강사= NULL, 수업내용= NULL, 메모 =NULL  WHERE 강의ID =@LectureID";
         ExecuteNonQuery(query, lectureID, rowsAffected =>
         {
             ShowMessage(rowsAffected > 0

@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_AddTeacher : System.Web.UI.Page
 {
-    private string connectionString = WebConfigurationManager.ConnectionStrings["ASPNET_ConnectionString"].ConnectionString;
+    private string connectionString = WebConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
 
     protected void Page_Load(object sender, EventArgs e)
     {

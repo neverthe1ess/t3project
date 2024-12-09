@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -70,10 +72,97 @@ public partial class index : System.Web.UI.Page
         }
     }
 
+    protected void Loadindex(object sender, EventArgs e)
+    {
+        string lectureID = GetLectureID();
+        if (lectureID == null)
+        {
+            ShowMessage("수업 ID가 전달되지 않았습니다.");
+            return;
+        }
+
+        string query = "SELECT 강사, 과목, 시간, 수업내용, 메모 FROM class WHERE 강의ID = @LectureID";
+        ExecuteQuery(query, lectureID, reader =>
+        {
+            if (reader.Read())
+            {
+                timetable_11.Text = reader["강사"].ToString();
+                
+            }
+            else
+            {
+                ShowMessage("수업 정보를 찾을 수 없습니다.");
+            }
+        });
+    }
+
+
     protected void btnDay_Click(object sender, EventArgs e)
     {
         string sendByObjectName = ((Button)sender).ID; // 버튼 ID 가져오기
         string btnQueryString = "dayof=" + Server.UrlEncode(sendByObjectName);
         Response.Redirect("index.aspx?" + btnQueryString);
     }
+
+
+    private string GetLectureID()
+    {
+        return Request.QueryString["LectureID"];
+    }
+
+    private void ExecuteQuery(string query, string lectureID, Action<SqlDataReader> handleData)
+    {
+        string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        using (SqlCommand command = new SqlCommand(query, connection))
+        {
+            command.Parameters.AddWithValue("@LectureID", lectureID);
+            try
+            {
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    handleData(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowMessage("데이터 처리 중 오류 발생: " + ex.Message);
+            }
+        }
+    }
+
+    private void ExecuteNonQuery(string query, string lectureID, Action<int> handleResult)
+    {
+        string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        using (SqlCommand command = new SqlCommand(query, connection))
+        {
+            command.Parameters.AddWithValue("@LectureID", lectureID);
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                handleResult(rowsAffected);
+            }
+            catch (Exception ex)
+            {
+                ShowMessage("데이터 처리 중 오류 발생: " + ex.Message);
+            }
+        }
+    }
+
+
+
+    private void ShowMessage(string message)
+    {
+        lbltable_title.Text = message;
+    }
 }
+
+
+
+
+    
