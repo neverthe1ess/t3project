@@ -11,6 +11,7 @@ public partial class index : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         // 초기 페이지일 때 오늘 요일 강조 (쿼리스트링이 없을 때)
         if (Request.QueryString["dayof"] == null)
         {
@@ -52,6 +53,43 @@ public partial class index : System.Web.UI.Page
         Response.Redirect("/AddLecture.aspx");
     }
 
+    private void LoadTimetableData()
+    {
+        // 데이터베이스 연결 문자열 (Web.config에 저장된 ConnectionString 사용)
+        string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
+
+        // 쿼리를 통해 데이터 가져오기 TODO 고치기
+        string query = "SELECT 강사, 과목 FROM class ";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    // 가져온 데이터를 LinkButton의 Text 속성에 할당
+                    timetable_11.Text = result.ToString();
+                }
+                else
+                {
+                    timetable_11.Text = "No Data Available";
+                }
+            }
+            catch (Exception ex)
+            {
+                // 에러 처리
+                timetable_11.Text = "Error: " + ex.Message;
+            }
+        }
+    }
+
+
+
     protected void timetable_Click(object sender, EventArgs e)
     {
         // 클릭된 강의 ID를 가져와 쿼리스트링으로 전달
@@ -70,30 +108,6 @@ public partial class index : System.Web.UI.Page
             // 잘못된 형식의 ID 처리
             // 필요시 오류 메시지 처리 로직 추가 가능
         }
-    }
-
-    protected void Loadindex(object sender, EventArgs e)
-    {
-        string lectureID = GetLectureID();
-        if (lectureID == null)
-        {
-            ShowMessage("수업 ID가 전달되지 않았습니다.");
-            return;
-        }
-
-        string query = "SELECT 강사, 과목, 시간, 수업내용, 메모 FROM class WHERE 강의ID = @LectureID";
-        ExecuteQuery(query, lectureID, reader =>
-        {
-            if (reader.Read())
-            {
-                timetable_11.Text = reader["강사"].ToString();
-                
-            }
-            else
-            {
-                ShowMessage("수업 정보를 찾을 수 없습니다.");
-            }
-        });
     }
 
 
