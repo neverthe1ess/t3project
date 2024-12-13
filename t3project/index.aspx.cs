@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web;
@@ -23,6 +24,8 @@ public partial class index : System.Web.UI.Page
         {
             controlBtnId = Request.QueryString["dayof"];
         }
+        List<TimetableEntry> timetables = LoadTimetableData();
+        printTimetablefromList(timetables);
         btnColor_Set(controlBtnId);
     }
 
@@ -53,38 +56,66 @@ public partial class index : System.Web.UI.Page
         Response.Redirect("/AddLecture.aspx");
     }
 
-    private void LoadTimetableData()
+    private List<TimetableEntry> LoadTimetableData()
     {
         // 데이터베이스 연결 문자열 (Web.config에 저장된 ConnectionString 사용)
         string connectionString = ConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
 
         // 쿼리를 통해 데이터 가져오기 TODO 고치기
-        string query = "SELECT 강사, 과목 FROM class ";
+        string query = "SELECT 강의ID, 강사, 과목, 요일 FROM class";
+        List<TimetableEntry> entries = new List<TimetableEntry>();
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             SqlCommand command = new SqlCommand(query, connection);
-
             try
             {
                 connection.Open();
-                object result = command.ExecuteScalar();
-
-                if (result != null)
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    // 가져온 데이터를 LinkButton의 Text 속성에 할당
-                    timetable_11.Text = result.ToString();
-                }
-                else
-                {
-                    timetable_11.Text = "No Data Available";
+                    while (reader.Read())
+                    {
+                        TimetableEntry entry = new TimetableEntry {
+                               LectureId = reader["강의ID"].ToString(),
+                               TeacherName = reader["강사"].ToString(),
+                               LectureName = reader["과목"].ToString(),
+                               DayofWeek = reader["요일"].ToString()
+                        };
+                        entries.Add(entry);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 // 에러 처리
-                timetable_11.Text = "Error: " + ex.Message;
+                lbltable_title.Text = "Error: " + ex.Message;
             }
+        }
+        return entries;
+    }
+
+    private string getDayofWeek()
+    {
+        string[] parts = controlBtnId.Split(new[] { "btnDay" }, StringSplitOptions.None);
+        string numberPart = "";
+        string[] dayofWeeks = { "일", "월", "화", "수", "목", "금", "토"};
+        // 숫자 추출
+        if (parts.Length > 1)
+        {
+            numberPart = parts[1];
+        }
+        return dayofWeeks[int.Parse(numberPart)];
+    }
+
+
+    private void printTimetablefromList(List<TimetableEntry> timetables)
+    {
+        //timetable_11~88
+        foreach (TimetableEntry TimeEntry in timetables)
+        {
+                Control placeHolder = this.Master.FindControl("maincontent");
+                LinkButton targetTimetable = (LinkButton)placeHolder.FindControl("timetable_" + TimeEntry.LectureId);
+                targetTimetable.Text = TimeEntry.TeacherName + "<br /> " + TimeEntry.LectureName;
         }
     }
 
@@ -117,6 +148,7 @@ public partial class index : System.Web.UI.Page
         string btnQueryString = "dayof=" + Server.UrlEncode(sendByObjectName);
         Response.Redirect("index.aspx?" + btnQueryString);
     }
+
 
 
     private string GetLectureID()

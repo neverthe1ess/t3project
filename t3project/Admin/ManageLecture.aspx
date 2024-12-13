@@ -17,7 +17,7 @@
                 <HeaderTemplate>
                     <tr class ="result_list_header">
                         <th style="padding:8px;"><asp:Label ID="txtDay" runat="server" Text="수업요일"></asp:Label></th>
-                        <th style="padding:8px;"><asp:Label ID="txtTime" runat="server" Text="수업시간"></asp:Label></th>
+                        <th style="padding:8px;"><asp:Label ID="txtTime" runat="server" Text="수업과목"></asp:Label></th>
                         <th style="padding:8px;"><asp:Label ID="txtContent" runat="server" Text="수업내용"></asp:Label></th>
                         <th style="padding:8px;"><asp:Label ID="txtName" runat="server" Text="강사이름"></asp:Label></th>
                         <th style="padding:8px;"><asp:Label ID="txtRoom" runat="server" Text="수업장소"></asp:Label></th>
@@ -25,11 +25,11 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                        <td class="result_list_body"><asp:Label ID="searchResDay" runat="server" Text='<%# Eval("day") %>'></asp:Label></td>
-                        <td class="result_list_body"><asp:Label ID="searchResTime" runat="server" Text='<%# Eval("time") %>'></asp:Label></td>
-                        <td class="result_list_body" style="text-align:left;"><asp:LinkButton ID="searchResContent" runat="server" onClick="searchResContent_Click" Text='<%# Eval("content") %>'></asp:LinkButton></td>
-                        <td class="result_list_body"><asp:Label ID="searchResName" runat="server" Text='<%# Eval("name") %>'></asp:Label></td>
-                        <td class="result_list_body"><asp:Label ID="searchResRoom" runat="server" Text='<%# Eval("room") %>'></asp:Label></td>
+                        <td class="result_list_body"><asp:Label ID="searchResDay" runat="server" Text='<%# Eval("DayofWeek") %>'></asp:Label></td>
+                        <td class="result_list_body"><asp:Label ID="searchResTime" runat="server" Text='<%# Eval("Subject") %>'></asp:Label></td>
+                        <td class="result_list_body"><asp:LinkButton ID="searchResContent" runat="server" onClick="searchResContent_Click" CommandArgument='<%# Eval("LectureId") %>' Text='<%# Eval("Content") %>'></asp:LinkButton></td>
+                        <td class="result_list_body"><asp:Label ID="searchResName" runat="server" Text='<%# Eval("Teacher") %>'></asp:Label></td>
+                        <td class="result_list_body"><asp:Label ID="searchResRoom" runat="server" Text='<%# Eval("Room") %>'></asp:Label></td>
                     </tr>
                 </ItemTemplate>
                 <SelectedItemTemplate>

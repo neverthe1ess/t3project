@@ -10,28 +10,27 @@ using System.Web.Configuration;
 
 public partial class Admin_InfoTeacher : System.Web.UI.Page
 {
-    private string connectionString = WebConfigurationManager.ConnectionStrings["ASPNET_ConnectionString"].ConnectionString;
+    private string connectionString = WebConfigurationManager.ConnectionStrings["t3projectConnectionString"].ConnectionString;
     private string teacherId;
     protected void Page_Load(object sender, EventArgs e)
     {
         teacherId = Request.QueryString["teacherid"];
         int teacherIdNum = int.Parse(teacherId);
         DataRow teacher = GetTeacherDataFromDatabase(teacherIdNum);
-        lblteacherName.Text = teacher["teacher_name"].ToString();
-        lblteacherDescription.Text = teacher["teacher_description"].ToString(); ;
+        lblteacherName.Text = teacher["강사"].ToString();
+        lblteacherDescription.Text = teacher["강사설명"].ToString(); ;
     }
 
     private DataRow GetTeacherDataFromDatabase(int teacherId)
     {
         SqlConnection conn = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand("SELECT teacher_id, teacher_name, teacher_description FROM TEACHER WHERE teacher_id = @tid", conn);
-        cmd.Parameters.AddWithValue("@tid", teacherId);
+        SqlCommand cmd = new SqlCommand("SELECT 강사, 강사설명 FROM teacher", conn);
         SqlDataAdapter da = new SqlDataAdapter(cmd);
 
         // 가상의 데이터베이스의 테이블 TEACHER
         DataSet ds = new DataSet();
-        da.Fill(ds, "TEACHER");
-        DataRow result = ds.Tables["TEACHER"].Rows[0];
+        da.Fill(ds, "teacher");
+        DataRow result = ds.Tables["teacher"].Rows[teacherId - 1];
 
         return result;
     }

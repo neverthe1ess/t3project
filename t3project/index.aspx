@@ -46,7 +46,7 @@
              <tbody>
                  <tr>
                      <th>13:00~14:00</th>
-                     <td><asp:LinkButton ID="timetable_11" runat="server" Text= OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
+                     <td><asp:LinkButton ID="timetable_11" runat="server" Text="11" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
                      <td><asp:LinkButton ID="timetable_21" runat="server" Text="21" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
                      <td><asp:LinkButton ID="timetable_31" runat="server" Text="31" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>
                      <td><asp:LinkButton ID="timetable_41" runat="server" Text="41" OnClick="timetable_Click" CssClass="table_element"></asp:LinkButton></td>

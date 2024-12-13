@@ -8,18 +8,20 @@ using System.Web;
 /// </summary>
 public class Lecture
 {
-    public string day { get; set; }
-    public string time { get; set; }
-    public string content { get; set; }
-    public string name { get; set; }
-    public string room{ get; set; }
+    public string LectureId { get; set; }
+    public string DayOfWeek { get; set; }
+    public string Subject { get; set; } // 변경된 부분
+    public string Content { get; set; }
+    public string Teacher { get; set; }
+    public string Room { get; set; }
 
-    public Lecture(string day, string time, string content, string name, string room)
+    public Lecture(string lectureId, string dayOfWeek, string subject, string content, string teacher, string room)
     {
-        this.day = day;
-        this.time = time;
-        this.content = content;
-        this.name = name;
-        this.room = room;   
+        LectureId = lectureId;
+        DayOfWeek = dayOfWeek;
+        Subject = subject; 
+        Content = content;
+        Teacher = teacher;
+        Room = room;
     }
 }

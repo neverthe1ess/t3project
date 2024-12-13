@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Web.UI;
 
-public partial class LectureInfo : Page
+public partial class LectureInfo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -80,8 +79,6 @@ public partial class LectureInfo : Page
     }
 
 
-
-
     private string GetLectureID()
     {
         return Request.QueryString["LectureID"];
@@ -130,8 +127,6 @@ public partial class LectureInfo : Page
             }
         }
     }
-
-
 
     private void ShowMessage(string message)
     {
