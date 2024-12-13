@@ -35,8 +35,11 @@
                 <SelectedItemTemplate>
                 </SelectedItemTemplate>
             </asp:DataList>
-            <br /><br />  
+            <br /><br />
+            <div class="floating-button-container">
+                <asp:LinkButton ID="btnTeacherAdd" runat="server" CssClass="floating-button-blue" onClick="btnTeacherAdd_Click"> <i class="fa fa-plus"></i>&nbsp;&nbsp;강의 추가</asp:LinkButton>
             </div>
+           </div>
         </div>
 </asp:Content>
 

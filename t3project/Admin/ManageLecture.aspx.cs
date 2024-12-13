@@ -86,4 +86,9 @@ public partial class Admin_ManageLecture : System.Web.UI.Page
             ShowMessage("강의 ID가 전달되지 않았습니다.");
         }
     }
+
+    protected void btnTeacherAdd_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/AddLecture.aspx");
+    }
 }
