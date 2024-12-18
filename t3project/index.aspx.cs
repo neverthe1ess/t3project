@@ -76,10 +76,10 @@ public partial class index : System.Web.UI.Page
                     while (reader.Read())
                     {
                         TimetableEntry entry = new TimetableEntry {
-                               LectureId = reader["강의ID"].ToString(),
-                               TeacherName = reader["강사"].ToString(),
-                               LectureName = reader["과목"].ToString(),
-                               DayofWeek = reader["요일"].ToString()
+                               LectureId = reader["강의ID"].ToString().Trim(),
+                               TeacherName = reader["강사"].ToString().Trim(),
+                               LectureName = reader["과목"].ToString().Trim(),
+                               DayofWeek = reader["요일"].ToString().Trim()
                         };
                         entries.Add(entry);
                     }
@@ -98,7 +98,7 @@ public partial class index : System.Web.UI.Page
     {
         string[] parts = controlBtnId.Split(new[] { "btnDay" }, StringSplitOptions.None);
         string numberPart = "";
-        string[] dayofWeeks = { "일", "월", "화", "수", "목", "금", "토"};
+        string[] dayofWeeks = {"일", "월", "화", "수", "목", "금", "토"};
         // 숫자 추출
         if (parts.Length > 1)
         {
@@ -113,9 +113,12 @@ public partial class index : System.Web.UI.Page
         //timetable_11~88
         foreach (TimetableEntry TimeEntry in timetables)
         {
+            if (TimeEntry.DayofWeek.Equals(getDayofWeek()))
+            {
                 Control placeHolder = this.Master.FindControl("maincontent");
                 LinkButton targetTimetable = (LinkButton)placeHolder.FindControl("timetable_" + TimeEntry.LectureId);
                 targetTimetable.Text = TimeEntry.TeacherName + "<br /> " + TimeEntry.LectureName;
+            }
         }
     }
 

@@ -23,7 +23,7 @@
 
          <div style="margin-top:15px">
               <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" PostBackUrl="~/Admin/ManageTeacher.aspx"  />
-              <asp:Button CssClass ="button_function" style ="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Text="강사 삭제" OnClick="btnLectureRemove_Click" />
+              <asp:Button CssClass ="button_function" style ="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Visible="false" Text="강사 삭제" OnClick="btnLectureRemove_Click" />
          </div>
     </div>
 </asp:Content>

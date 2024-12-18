@@ -35,6 +35,10 @@
             <asp:Button CssClass="button_function" ID="btnLectureModify" runat="server" Text="강의 수정"  OnClick="btnLectureModify_Click"/>
             <asp:Button CssClass="button_function" style="background:#dc3545; border:1px solid #dc3545;" ID="btnLectureRemove" runat="server" Text="강의 삭제" OnClick="btnLectureRemove_Click"/>
         </div>
+
+        <div class="floating-button-container">
+            <asp:LinkButton ID="btnTeacherAdd" Visible="false" runat="server" CssClass="floating-button-blue" PostBackUrl="~/AddLecture.aspx"> <i class="fa fa-plus"></i>&nbsp;&nbsp;강의 등록</asp:LinkButton>
+        </div>
     </div>
 </asp:Content>
 

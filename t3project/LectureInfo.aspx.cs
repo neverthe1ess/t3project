@@ -62,10 +62,20 @@ public partial class LectureInfo : System.Web.UI.Page
             }
             else
             {
-                ShowMessage("수업 정보를 찾을 수 없습니다.");
+                inVisibleButton();
+                ShowMessage("수업 정보를 찾을 수 없습니다. 강의를 등록하세요!");
             }
         });
     }
+
+    private void inVisibleButton()
+    {
+        btnLectureModify.Visible = false;
+        btnLectureRemove.Visible = false;
+        btnTeacherAdd.Visible = true;
+    }
+
+
 
     private void DeleteLecture(string lectureID)
     {

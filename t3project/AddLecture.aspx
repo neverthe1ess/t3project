@@ -26,28 +26,25 @@
                    <span class="title">수업시간</span>
                    <asp:DropDownList class="body" ID="ddlLectureTime" runat="server" >
                        <asp:ListItem>13:00~14:00</asp:ListItem>
-                       <asp:ListItem>차영욱T</asp:ListItem>
-                       <asp:ListItem>이철희T</asp:ListItem>
-                       <asp:ListItem>이은서T</asp:ListItem>
+                       <asp:ListItem>14:00~15:00</asp:ListItem>
+                       <asp:ListItem>15:00~16:00</asp:ListItem>
+                       <asp:ListItem>16:00~17:00</asp:ListItem>
+                       <asp:ListItem>17:00~18:00</asp:ListItem>
+                       <asp:ListItem>18:00~19:00</asp:ListItem>
+                       <asp:ListItem>19:00~20:00</asp:ListItem>
+                       <asp:ListItem>20:00~21:00</asp:ListItem>
                    </asp:DropDownList>
                </div>
                <hr />
                <div>
                    <span class="title">강사이름</span>
                    <asp:DropDownList class="body" ID="ddlTeacherList" runat="server">
-                       <asp:ListItem>이정빈T</asp:ListItem>
-                       <asp:ListItem>차영욱T</asp:ListItem>
-                       <asp:ListItem>이철희T</asp:ListItem>
-                       <asp:ListItem>이은서T</asp:ListItem>
+
                    </asp:DropDownList>
                </div>
                <div>
                    <span class="title">수업장소</span>
                    <asp:DropDownList class="body" ID="ddlLectureRooms" runat="server">
-                       <asp:ListItem>이정빈T</asp:ListItem>
-                       <asp:ListItem>차영욱T</asp:ListItem>
-                       <asp:ListItem>이철희T</asp:ListItem>
-                       <asp:ListItem>이은서T</asp:ListItem>
                    </asp:DropDownList>
                </div>
                <div>
@@ -65,8 +62,8 @@
                </div>
            </div>
            <div style="margin-top:15px">
-               <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" />
-               <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" Text="강의 등록" />
+               <asp:Button CssClass ="button_function" style ="background:#6c757d; border:1px solid #6c757d;" ID="btnToList" runat="server" Text="목록으로" PostBackUrl="~/index.aspx" />
+               <asp:Button CssClass ="button_function" ID="btnLectureModify" runat="server" onClick="btnLectureModify_Click" Text="강의 등록" />
            </div>
        </div>
 </asp:Content>
